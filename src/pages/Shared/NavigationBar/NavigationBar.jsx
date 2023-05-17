@@ -11,23 +11,23 @@ const NavigationBar = () => {
         <div className="px-2 py-3 md:px-20 md:py-5 mx-auto  flex justify-between items-center shadow-md md:shadow-lg z-10">
           <Link to="/" className="text-3xl ">
             <p className="font-bold">
-              <span className="text-white bg-red-600 ">My</span>Heroes
+              <span className="text-white bg-red-600 py-1">My</span><span className="text-slate-500 border-y-red-500 border-y-2">Heroes</span>
             </p>
           </Link>
           {/* `md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-cyan-400 w-full left-0 md:w-auto py-4 md:py-0 pl-8 md:pl-0 md:opacity-100 opacity-0 ${isClicked ? 'opacity-100 duration-500' : 'top-80'}` */}
           {/* -translate-y-60 ${isClicked ? "" : "hidden md:block"} */}
           <ul className={` md:flex md:static absolute left-0  md:gap-5 w-full md:w-auto  ${isClicked ? "translate-y-20  duration-700  bg-red-200 md:bg-transparent    px-5 " : "-translate-y-48 md:translate-y-0 duration-300"}`}>
             <li>
-              <Link onClick={() => setIsClicked(!isClicked)} to="/">Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <Link onClick={() => setIsClicked(!isClicked)}  to="/all_toys">All Toys</Link>
+              <Link  to="/all_toys">All Toys</Link>
             </li>
             <li>
-              <Link onClick={() => setIsClicked(!isClicked)}  to="/add_toy">Add Toy</Link>
+              <Link  to="/add_toy">Add Toy</Link>
             </li>
             <li>
-              <Link onClick={() => setIsClicked(!isClicked)}  to="/blog">Blog</Link>
+              <Link  to="/blog">Blog</Link>
             </li>
           </ul>
           <div className="flex items-center gap-2">
