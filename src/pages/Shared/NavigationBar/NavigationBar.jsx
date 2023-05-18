@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoMenu, IoCloseCircleOutline } from "react-icons/io5";
+import ActiveLink from "../ActiveLink/ActiveLink";
 const NavigationBar = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [user, setUser] = useState(false)
   return (
     <div>
       {/* <h2>This is navbar</h2> */}
-      <nav>
-        <div className="px-2 py-3 md:px-20 md:py-5 mx-auto  flex justify-between items-center shadow-md md:shadow-lg z-10">
+      <nav className="">
+        <div className="px-2 py-3 md:px-20 md:py-5 mx-auto  flex justify-between items-center shadow-md md:shadow-lg z-10 ">
           <Link to="/" className="text-3xl ">
             <p className="font-bold">
               <span className="text-white bg-red-600 py-1">My</span><span className="text-slate-500 border-y-red-500 border-y-2">Heroes</span>
@@ -16,18 +17,18 @@ const NavigationBar = () => {
           </Link>
           {/* `md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-cyan-400 w-full left-0 md:w-auto py-4 md:py-0 pl-8 md:pl-0 md:opacity-100 opacity-0 ${isClicked ? 'opacity-100 duration-500' : 'top-80'}` */}
           {/* -translate-y-60 ${isClicked ? "" : "hidden md:block"} */}
-          <ul className={` md:flex md:static absolute left-0  md:gap-5 w-full md:w-auto  ${isClicked ? "translate-y-20  duration-700  bg-red-200 md:bg-transparent    px-5 " : "-translate-y-48 md:translate-y-0 duration-300"}`}>
+          <ul className={` md:flex md:static absolute left-0 z-10  md:gap-5 w-full md:w-auto  ${isClicked ? "translate-y-20  duration-700  bg-red-200 md:bg-transparent    px-5 " : "-translate-y-48 md:translate-y-0 duration-300"}`}>
             <li>
-              <Link to="/">Home</Link>
+              <ActiveLink to="/">Home</ActiveLink>
             </li>
             <li>
-              <Link  to="/all_toys">All Toys</Link>
+              <ActiveLink to="/all_toys">All Toys</ActiveLink>
             </li>
             <li>
-              <Link  to="/add_toy">Add Toy</Link>
+              <ActiveLink to="/add_toy">Add Toy</ActiveLink>
             </li>
             <li>
-              <Link  to="/blog">Blog</Link>
+              <ActiveLink  to="/blog">Blog</ActiveLink>
             </li>
           </ul>
           <div className="flex items-center gap-2">

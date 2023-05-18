@@ -1,10 +1,11 @@
 import { Footer } from "flowbite-react";
 import React from "react";
 import { Link } from "react-router-dom";
+import { ImFacebook, ImTwitter, ImGithub, ImInstagram, ImDribbble } from "react-icons/im";
 
 const WebFooter = () => {
   return (
-    <div>
+    <div className="px-2 md:px-20 mt-2 md:mt-8 ">
       <Footer container={true}>
         <div className="w-full">
           <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
@@ -19,7 +20,7 @@ const WebFooter = () => {
               <div>
                 <Footer.Title title="about" />
                 <Footer.LinkGroup col={true}>
-                  <Footer.Link href="#">Flowbite</Footer.Link>
+                  <Footer.Link href="#">PHero</Footer.Link>
                   <Footer.Link href="#">Tailwind CSS</Footer.Link>
                 </Footer.LinkGroup>
               </div>
@@ -42,12 +43,16 @@ const WebFooter = () => {
           <Footer.Divider />
           <div className="w-full sm:flex sm:items-center sm:justify-between">
             <Footer.Copyright href="#" by="MyHeroes™" year={2023} />
-            <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-              <Footer.Icon href="#" icon={"FB"} />
-              <Footer.Icon href="#" icon={"IG"} />
-              <Footer.Icon href="#" icon={"TW"} />
-              <Footer.Icon href="#" icon={"GH"} />
-              <Footer.Icon href="#" icon={"DB"} />
+            <div className="mt-4 py-2 flex space-x-6 sm:mt-0 sm:justify-center">
+              {/* <Footer.Icon href="#" icon={ImFacebook} />
+              <Footer.Icon href="#" icon={ImInstagram} />
+              <Footer.Icon href="#" icon={ImTwitter} />
+              <Footer.Icon href="#" icon={ImGithub} />
+              <Footer.Icon href="#" icon={ImDribbble} /> */}
+             <ImFacebook></ImFacebook>
+              <Link to=''><ImInstagram></ImInstagram></Link>
+              <Link to=''><ImTwitter></ImTwitter></Link>
+              <Link to=''><ImDribbble></ImDribbble></Link>
             </div>
           </div>
         </div>
