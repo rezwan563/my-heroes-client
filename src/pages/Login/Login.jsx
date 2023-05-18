@@ -1,15 +1,37 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { AuthContext } from "../provider/AuthProvider";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 
 const Login = () => {
+    const { user, emailLogin} = useContext(AuthContext)
     const [isHidden, setIsHidden] = useState(true)
+    const [error, setError] = useState('')
+
+    const handleLogin = (e) =>{
+        e.preventDefault()
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        emailLogin(email, password)
+        .then(result =>{
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            toast.success(`Welcome, ${loggedUser.displayName} `)
+        })
+        .catch(error =>{
+            console.log(error.message)
+            setError(error.message)
+        })
+    }
   return (
     <div>
       <div className="  flex justify-center md:mt-5">
         <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-          <form className="space-y-6" action="#">
+          <form onSubmit={handleLogin} className="space-y-6" action="#">
             <h5 className="text-xl font-medium text-gray-900 dark:text-white">
               Please login
             </h5>
@@ -37,13 +59,16 @@ const Login = () => {
                 Your password
               </label>
               <input
-                type="password"
+                type={isHidden ? 'password' : 'text'}
                 name="password"
                 id="password"
                 placeholder="••••••••"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 required
               />
+              {
+                error && <p className="text-red-500"><small>{error}</small></p>
+              }
               <div className="flex justify-end">
               {
                 isHidden ? <FaEyeSlash onClick={() => setIsHidden(!isHidden)}></FaEyeSlash>
