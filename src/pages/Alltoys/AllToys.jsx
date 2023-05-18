@@ -1,10 +1,14 @@
 import React from "react";
 
 const AllToys = () => {
+  const handleSearch = (e) =>{
+    e.preventDefault()
+    console.log("Reload hocche na");
+  }
   return (
     <div className="mt-12 md:mx-20">
        <div className="mb-2 ">
-       <form className="flex justify-end">
+       <form onSubmit={handleSearch} className="flex justify-end">
        <input type="text" placeholder="Toy name" className="input input-bordered w-full max-w-xs" />
         <button className="p-3 bg-red-700 hover:bg-red-800 rounded-md text-white"><input type="submit" value="Search" /></button>
        </form>
