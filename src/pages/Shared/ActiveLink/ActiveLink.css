@@ -1,6 +1,4 @@
 .active{
-    text-decoration: underline;
-    text-decoration-color: rgb(155, 5, 5);
-    text-decoration-thickness: 3px;
-    text-underline-offset: 10px;
+    text-decoration-color: rgb(209, 196, 196);
+    color: rgb(155, 5, 5);
 }

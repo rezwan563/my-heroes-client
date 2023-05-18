@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import './AddAToy.css'
 
 const AddAToy = () => {
   const { user } = useContext(AuthContext)
@@ -32,7 +33,7 @@ const AddAToy = () => {
     console.log(newToy);
   };
   return (
-    <div className="w-full md:w-1/2 md:my-12 md:mx-auto">
+    <div className="w-full px-5 my-5  md:w-1/2 md:my-12 md:mx-auto">
       <form onSubmit={handleAddToy} >
         <p className="text-xl font-semibold ">Seller Information</p>
         <div className="grid grid-cols-1 md:grid-cols-2 md:mb-5">
@@ -40,17 +41,15 @@ const AddAToy = () => {
             type="text"
             name="sellerName"
             defaultValue={user?.displayName}
-            disabled={user?.displayName ? 'true' : 'false'}
             placeholder="Seller name"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered mb-2 md:mb-0 w-full max-w-xs"
           />
           <input
             type="text"
             name="sellerEmail"
             defaultValue={user?.email}
-            disabled={user?.email ? 'true' : 'false'}
             placeholder="Seller email"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered mb-2 md:mb-0 w-full max-w-xs"
           />
         </div>
         <hr />
@@ -60,13 +59,13 @@ const AddAToy = () => {
             type="text"
             name="toyName"
             placeholder="Toy name"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered mb-2 md:mb-0 w-full max-w-xs"
           />
           <input
             type="url"
             name="toyPhoto"
             placeholder="Toy photo"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered mb-2 md:mb-0 w-full max-w-xs"
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 md:mb-5">
@@ -74,13 +73,13 @@ const AddAToy = () => {
             type="text"
             name="subCategory"
             placeholder="Sub category"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered mb-2 md:mb-0 w-full max-w-xs"
           />
           <input
             type="number"
             name="price"
             placeholder="Price"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered mb-2 md:mb-0 w-full max-w-xs"
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 md:mb-2">
@@ -88,24 +87,19 @@ const AddAToy = () => {
             type="text"
             name="rating"
             placeholder="Rating"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered mb-2 md:mb-0 w-full max-w-xs"
           />
           <input
             type="text"
             name="quantity"
             placeholder="Avaiable Quantity"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered mb-2 md:mb-0 w-full max-w-xs"
           />
         </div>
         <div className="">
-          <textarea
-            name="details"
-            placeholder="Details"
-            cols="75"
-            rows="3"
-          ></textarea>
+        <textarea type="text" className="textarea textarea-bordered" name="details" placeholder="Details"></textarea>
         </div>
-        <div className="">
+        <div className="mb-10">
           <button
             type="submit"
             className="p-3 bg-red-700 hover:bg-red-800 text-white rounded-md"

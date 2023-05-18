@@ -14,7 +14,6 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
-    console.log(form);
     const email = form.email.value;
     const password = form.password.value;
     emailLogin(email, password)
