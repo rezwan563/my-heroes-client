@@ -9,15 +9,15 @@ const NavigationBar = () => {
   const [isClicked, setIsClicked] = useState(false);
   const { user, logOut } = useContext(AuthContext);
 
-  const handleLogout = () =>{
+  const handleLogout = () => {
     logOut()
-    .then(result =>{
-      toast.success("Logout successful")
-    })
-    .catch(error =>{
-      toast.error(`${error.message}`)
-    })
-  }
+      .then((result) => {
+        toast.success("Logout successful");
+      })
+      .catch((error) => {
+        toast.error(`${error.message}`);
+      });
+  };
   return (
     <div>
       {/* <h2>This is navbar</h2> */}
@@ -36,7 +36,7 @@ const NavigationBar = () => {
           <ul
             className={` md:flex md:static absolute left-0 z-10  md:gap-5 w-full md:w-auto  ${
               isClicked
-                ? "translate-y-20  duration-700  bg-red-200 md:bg-transparent    px-5 "
+                ? "translate-y-20  duration-700  bg-slate-300 md:bg-transparent    px-5 "
                 : "-translate-y-48 md:translate-y-0 duration-300"
             }`}
           >
@@ -87,6 +87,7 @@ const NavigationBar = () => {
               )}
             </span>
           </div>
+         
         </div>
       </nav>
     </div>

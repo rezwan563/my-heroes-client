@@ -4,29 +4,42 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
-
+import { ImGoogle } from "react-icons/im";
 
 const Login = () => {
-    const { user, emailLogin} = useContext(AuthContext)
-    const [isHidden, setIsHidden] = useState(true)
-    const [error, setError] = useState('')
+  const { user, emailLogin, googleLogin } = useContext(AuthContext);
+  const [isHidden, setIsHidden] = useState(true);
+  const [error, setError] = useState("");
 
-    const handleLogin = (e) =>{
-        e.preventDefault()
-        const form = e.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        emailLogin(email, password)
-        .then(result =>{
-            const loggedUser = result.user;
-            console.log(loggedUser);
-            toast.success(`Welcome, ${loggedUser.displayName} `)
-        })
-        .catch(error =>{
-            console.log(error.message)
-            setError(error.message)
-        })
-    }
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    emailLogin(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        toast.success(`Welcome, ${loggedUser.displayName} `);
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setError(error.message);
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        toast.success(`Welcome ${loggedUser.displayName}`);
+      })
+      .catch((error) => {
+        setError(error.message);
+        toast.error(error.message);
+      });
+  };
   return (
     <div>
       <div className="  flex justify-center md:mt-5">
@@ -59,24 +72,29 @@ const Login = () => {
                 Your password
               </label>
               <input
-                type={isHidden ? 'password' : 'text'}
+                type={isHidden ? "password" : "text"}
                 name="password"
                 id="password"
                 placeholder="••••••••"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 required
               />
-              {
-                error && <p className="text-red-500"><small>{error}</small></p>
-              }
+              {error && (
+                <p className="text-red-500">
+                  <small>{error}</small>
+                </p>
+              )}
               <div className="flex justify-end">
-              {
-                isHidden ? <FaEyeSlash onClick={() => setIsHidden(!isHidden)}></FaEyeSlash>
-                :<FaEye onClick={() => setIsHidden(!isHidden)}></FaEye>
-              }
+                {isHidden ? (
+                  <FaEyeSlash
+                    onClick={() => setIsHidden(!isHidden)}
+                  ></FaEyeSlash>
+                ) : (
+                  <FaEye onClick={() => setIsHidden(!isHidden)}></FaEye>
+                )}
               </div>
             </div>
-            <div className="flex items-start">
+            {/* <div className="flex items-start">
               <div className="flex items-start">
                 <div className="flex items-center h-5">
                   <input
@@ -95,13 +113,14 @@ const Login = () => {
                 </label>
               </div>
              
-            </div>
+            </div> */}
             <button
               type="submit"
               className="w-full text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
             >
               Login to your account
             </button>
+            
             <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
               Not registered?{" "}
               <Link
@@ -112,6 +131,13 @@ const Login = () => {
               </Link>
             </div>
           </form>
+          <div className="divider">OR</div>
+            <button
+              onClick={handleGoogleLogin}
+              className="w-full flex justify-center items-center gap-2 bg-slate-100 hover:bg-slate-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-slate-200 dark:hover:bg-red-700 dark:focus:ring-slate-500"
+            >
+              <ImGoogle></ImGoogle> Continue with Google
+            </button>
         </div>
       </div>
     </div>
