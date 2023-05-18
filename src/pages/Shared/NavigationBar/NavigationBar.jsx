@@ -46,9 +46,16 @@ const NavigationBar = () => {
             <li>
               <ActiveLink to="/all_toys">All Toys</ActiveLink>
             </li>
-            <li>
-              <ActiveLink to="/add_toy">Add Toy</ActiveLink>
-            </li>
+            {user && (
+              <li>
+                <ActiveLink to="/my_toys">My Toys</ActiveLink>
+              </li>
+            )}
+            {user && (
+              <li>
+                <ActiveLink to="/add_toy">Add Toy</ActiveLink>
+              </li>
+            )}
             <li>
               <ActiveLink to="/blog">Blog</ActiveLink>
             </li>
@@ -63,7 +70,10 @@ const NavigationBar = () => {
               />
             )}
             {user ? (
-              <button onClick={handleLogout} className="px-3 bg-red-700 text-white py-2 rounded-md shadow-md">
+              <button
+                onClick={handleLogout}
+                className="px-3 bg-red-700 text-white py-2 rounded-md shadow-md"
+              >
                 Logout
               </button>
             ) : (
@@ -87,7 +97,6 @@ const NavigationBar = () => {
               )}
             </span>
           </div>
-         
         </div>
       </nav>
     </div>

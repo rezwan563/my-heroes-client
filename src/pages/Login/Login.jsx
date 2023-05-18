@@ -23,7 +23,6 @@ const Login = () => {
         toast.success(`Welcome, ${loggedUser.displayName} `);
       })
       .catch((error) => {
-        console.log(error.message);
         setError(error.message);
       });
   };
@@ -32,7 +31,6 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
         toast.success(`Welcome ${loggedUser.displayName}`);
       })
       .catch((error) => {
