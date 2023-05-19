@@ -14,5 +14,5 @@ only show the products that the current user have added.
 
 
 ![Homepage_desktop](/public/homepage.png)
-
 ![Homepage_mobile](/public/homepage_mobile.png)
+![Gallery_section](/gallery_section.png)

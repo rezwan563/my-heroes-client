@@ -85,7 +85,7 @@ const WebFooter = () => {
           <a className="link link-hover">Cookie policy</a>
         </div>
       </footer>
-      <footer className="flex  justify-between px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
+      <footer className="flex gap-6 md:gap-0 items-center justify-between px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
         <div className="items-center grid-flow-col">
         <span className=" py-1">My</span>
               <span className="text-slate-500 border-y-red-500 border-y-2">
