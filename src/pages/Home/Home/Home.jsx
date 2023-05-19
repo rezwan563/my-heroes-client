@@ -13,16 +13,16 @@ const Home = () => {
       <section className="my-5 md:my-10">
         <OurPartners></OurPartners>
       </section>
-      <section className="my-5 md:my-10">
+      <section className="my-5 md:my-20">
         <PhotoGallery></PhotoGallery>
       </section>
-      <section className="my-5 md:my-10">
+      <section className="my-5 md:my-20">
         <ShopbyCategory></ShopbyCategory>
       </section>
-      <section>
+      <section className="my-5 md:my-20">
         <LimitedOffer></LimitedOffer>
       </section>
-      <section className="my-5 md:my-10">
+      <section className="my-5 md:my-20">
         <NewsLetter></NewsLetter>
       </section>
     </div>

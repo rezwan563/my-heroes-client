@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
 import "react-toastify/dist/ReactToastify.css";
@@ -10,6 +10,10 @@ const Login = () => {
   const { user, emailLogin, googleLogin } = useContext(AuthContext);
   const [isHidden, setIsHidden] = useState(true);
   const [error, setError] = useState("");
+  const location = useLocation()
+  const navigate = useNavigate()
+  const from = location.state?.from?.pathname || '/'
+
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -20,6 +24,7 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        navigate(from)
         toast.success(`Welcome, ${loggedUser.displayName} `);
       })
       .catch((error) => {
@@ -31,6 +36,7 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         const loggedUser = result.user;
+        navigate(from)
         toast.success(`Welcome ${loggedUser.displayName}`);
       })
       .catch((error) => {

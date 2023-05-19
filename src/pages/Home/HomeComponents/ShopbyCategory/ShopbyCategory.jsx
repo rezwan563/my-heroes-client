@@ -14,7 +14,7 @@ const ShopbyCategory = () => {
     const handleStarWarCategory = (e) =>{
     }
   return (
-    <div className="w-fit mx-auto md:w-1/2 md:mx-auto">
+    <div className="w-fit mx-auto md:w-3/4 md:mx-auto ">
       <Tabs className={'border-slate-400 border-b-2'}>
         <TabList className={'bg-slate-200 flex justify-around'}>
           <Tab onClick={handleMarvelCategory}>Marvel</Tab>

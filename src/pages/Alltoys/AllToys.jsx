@@ -1,6 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const AllToys = () => {
+  // TODO
+  // 1. Dynamic route on details button ('/toy/:id')
+  const id = 23422;
+
   const handleSearch = (e) =>{
     e.preventDefault()
     const form = e.target;
@@ -35,7 +40,7 @@ const AllToys = () => {
             <td className="border-2">Marvel</td>
             <td className="border-2">250</td>
             <td className="border-2">2000</td>
-            <td className="border-2"><button className="md:px-3 md:py-2 text-white bg-zinc-600 rounded-md hover:bg-zinc-400 dark:bg-white dark:text-black my-2">Details</button></td>
+            <td className="border-2"><Link to={`/toy/${id}`}><button className="md:px-3 md:py-2 text-white bg-zinc-600 rounded-md hover:bg-zinc-400 dark:bg-white dark:text-black my-2">Details</button></Link></td>
           </tr>
         </tbody>
       </table>

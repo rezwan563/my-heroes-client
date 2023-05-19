@@ -43,6 +43,7 @@ const AddAToy = () => {
             defaultValue={user?.displayName}
             placeholder="Seller name"
             className="input input-bordered mb-2 md:mb-0 w-full max-w-xs"
+            required
           />
           <input
             type="text"
@@ -50,6 +51,7 @@ const AddAToy = () => {
             defaultValue={user?.email}
             placeholder="Seller email"
             className="input input-bordered mb-2 md:mb-0 w-full max-w-xs"
+            required
           />
         </div>
         <hr />
@@ -60,12 +62,14 @@ const AddAToy = () => {
             name="toyName"
             placeholder="Toy name"
             className="input input-bordered mb-2 md:mb-0 w-full max-w-xs"
+            required
           />
           <input
             type="url"
             name="toyPhoto"
             placeholder="Toy photo"
             className="input input-bordered mb-2 md:mb-0 w-full max-w-xs"
+            required
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 md:mb-5">
@@ -74,12 +78,14 @@ const AddAToy = () => {
             name="subCategory"
             placeholder="Sub category"
             className="input input-bordered mb-2 md:mb-0 w-full max-w-xs"
+            required
           />
           <input
             type="number"
             name="price"
             placeholder="Price"
             className="input input-bordered mb-2 md:mb-0 w-full max-w-xs"
+            required
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 md:mb-2">
@@ -88,12 +94,14 @@ const AddAToy = () => {
             name="rating"
             placeholder="Rating"
             className="input input-bordered mb-2 md:mb-0 w-full max-w-xs"
+            required
           />
           <input
             type="text"
             name="quantity"
             placeholder="Avaiable Quantity"
             className="input input-bordered mb-2 md:mb-0 w-full max-w-xs"
+            required
           />
         </div>
         <div className="">
@@ -101,7 +109,6 @@ const AddAToy = () => {
         </div>
         <div className="mb-10">
           <button
-            type="submit"
             className="p-3 w-full bg-slate-700 hover:bg-slate-800 text-white rounded-md"
           >
            <input type="submit" value="Add" />
