@@ -5,7 +5,7 @@ import './ActiveLink.css'
 const ActiveLink = ({ to, children }) => {
   return (
     <div>
-      <NavLink to={to} className="ml-4 dark:text-white">
+      <NavLink to={to} className="ml-4 dark:text-white ">
         {children}
       </NavLink>
     </div>

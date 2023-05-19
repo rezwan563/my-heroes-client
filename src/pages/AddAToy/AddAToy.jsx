@@ -102,7 +102,7 @@ const AddAToy = () => {
         <div className="mb-10">
           <button
             type="submit"
-            className="p-3 bg-red-700 hover:bg-red-800 text-white rounded-md"
+            className="p-3 w-full bg-slate-700 hover:bg-slate-800 text-white rounded-md"
           >
            <input type="submit" value="Add" />
           </button>
