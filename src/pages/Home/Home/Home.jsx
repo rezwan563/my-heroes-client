@@ -16,7 +16,7 @@ const Home = () => {
       <section className="my-5 md:my-10">
         <PhotoGallery></PhotoGallery>
       </section>
-      <section>
+      <section className="my-5 md:my-10">
         <ShopbyCategory></ShopbyCategory>
       </section>
       <section>

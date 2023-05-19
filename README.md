@@ -10,9 +10,8 @@ only show the products that the current user have added.
 
 * Some tools that were used in making  of this site are **firebase**, **tailwind**, **daiysiUi**, **react-router**, **mongodb**
 
+* You can find [my heroes](https://my-heroes-83029.web.app/)
+
 #### Screenshots 
 
-
-![Homepage_desktop](/public/homepage.png)
-![Homepage_mobile](/public/homepage_mobile.png)
 ![Gallery_section](/gallery_section.png)
