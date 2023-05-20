@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,6 +11,7 @@ const Login = () => {
   const [isHidden, setIsHidden] = useState(true);
   const [error, setError] = useState("");
   const location = useLocation()
+  console.log(location);
   const navigate = useNavigate()
   const from = location.state?.from?.pathname || '/'
 
@@ -23,7 +24,6 @@ const Login = () => {
     emailLogin(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
         navigate(from)
         toast.success(`Welcome, ${loggedUser.displayName} `);
       })
@@ -129,6 +129,7 @@ const Login = () => {
               Not registered?{" "}
               <Link
                 to="/register"
+                state={{from: location}}
                 className="text-red-700 hover:underline dark:text-red-500"
               >
                 Create account

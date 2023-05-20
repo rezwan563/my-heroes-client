@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import './AddAToy.css'
+import "./AddAToy.css";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const AddAToy = () => {
-  const { user } = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
 
   const handleAddToy = (event) => {
     event.preventDefault();
@@ -30,11 +32,23 @@ const AddAToy = () => {
       quantity,
       details,
     };
-    console.log(newToy);
+    fetch("http://localhost:5000/all_toys", {
+      method: "POST",
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(newToy)
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if(data.insertedId){
+          toast.success("Toy added successfully")
+        }
+      });
   };
   return (
     <div className="w-full px-5 my-5  md:w-1/2 md:my-12 md:mx-auto">
-      <form onSubmit={handleAddToy} >
+      <form onSubmit={handleAddToy}>
         <p className="text-xl font-semibold ">Seller Information</p>
         <div className="grid grid-cols-1 md:grid-cols-2 md:mb-5">
           <input
@@ -105,13 +119,16 @@ const AddAToy = () => {
           />
         </div>
         <div className="">
-        <textarea type="text" className="textarea textarea-bordered" name="details" placeholder="Details"></textarea>
+          <textarea
+            type="text"
+            className="textarea textarea-bordered"
+            name="details"
+            placeholder="Details"
+          ></textarea>
         </div>
         <div className="mb-10">
-          <button
-            className="p-3 w-full bg-slate-700 hover:bg-slate-800 text-white rounded-md"
-          >
-           <input type="submit" value="Add" />
+          <button className="p-3 w-full bg-slate-700 hover:bg-slate-800 text-white rounded-md">
+            <input type="submit" value="Add" />
           </button>
         </div>
       </form>

@@ -1,34 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import img from '/placeholder.jpg'
+import { useLoaderData, useParams } from 'react-router-dom';
 
 const SingleToyDetails = () => {
+    const loadSingleDetails = useLoaderData()
+    const { _id, sellerName, sellerEmail, toyName, toyPhoto, subCategory, price, rating, quantity, details} = loadSingleDetails[0]
+    
+ 
     return (
         <div className='my-10'>
             <div className='border-4 shadow-md border-red-50 mx-2 md:w-1/2 md:mx-auto'>
-                <div className='bg-slate-200 p-2 grid grid-rows-2 md:grid-cols-2'>
+                <div className='bg-slate-100 p-2 grid grid-cols-1 md:flex md:justify-between'>
                     <div className='p-2 grid md:grid-cols-2 order-last md:order-none'>
                         
                         <div className=' p-2'>
                             <p className='text-lg md:text-2xl font-semibold'>Seller Info</p>
-                            <p>Name: </p>
-                            <p>Email: </p>
+                            <p><span className='font-semibold'>Name:</span> {sellerName}</p>
+                            <p><span className='font-semibold'>Email: </span> {sellerEmail}</p>
                         </div>
-                        <div className=' p-2'>
+                        {/* Mobile and desktop layout */}
+                        <div className='md:hidden p-2'>
                             <p className='text-lg md:text-2xl  font-semibold'>Product Info</p>
-                            <p>Name: </p>
-                            <p>Sub-category: </p>
-                            <p>Price: </p>
-                            <p>Rating: </p>
-                            <p>Available Qty.: </p>
-                            <p>Details: </p>
+                            <p><span className='font-semibold'>Name</span> {toyName}</p>
+                            <p><span className='font-semibold'>Sub-category: </span> {subCategory}</p>
+                            <p><span className='font-semibold'>Price: </span> {price}</p>
+                            <p><span className='font-semibold'>Rating: </span> {rating}</p>
+                            <p><span className='font-semibold'>vailable Qty.</span>: {quantity}</p>
+                            <p><span className='font-semibold'>Details: </span> {details}</p>
                         </div>
 
                     </div>
                     <div className=''>
-                        <img className='md:w-64 mx-auto shadow-sm' src={img} alt="" />
+                        <img className='w-24 md:w-fit md:h-48 md:mx-auto shadow-sm' src={toyPhoto} alt="" />
                     </div>
-
+                   
                 </div>
+                 <div className='hidden md:block p-2'>
+                            <p className='text-lg md:text-2xl  font-semibold'>Product Info</p>
+                            <p><span className='font-semibold'>Name</span> {toyName}</p>
+                            <p><span className='font-semibold'>Sub-category: </span> {subCategory}</p>
+                            <p><span className='font-semibold'>Price: </span> {price}</p>
+                            <p><span className='font-semibold'>Rating: </span> {rating}</p>
+                            <p><span className='font-semibold'>vailable Qty.</span>: {quantity}</p>
+                            <p><span className='font-semibold'>Details: </span> {details}</p>
+                        </div>
             </div>
         </div>
     );

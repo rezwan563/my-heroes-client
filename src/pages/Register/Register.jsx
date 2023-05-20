@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
@@ -10,6 +10,10 @@ const Register = () => {
   const [isHidden, setIsHidden] = useState(true);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const location = useLocation()
+  const navigate = useNavigate()
+  console.log(location);
+  const from = location.state?.from?.state?.from?.pathname || '/'
   const { user, createUser, profileUpdate } = useContext(AuthContext);
 
   const handleRegister = (e) => {
@@ -26,6 +30,7 @@ const Register = () => {
         console.log(newUser);
         profileUpdate(name, photo)
           .then(() => {
+            navigate(from)
             toast.success("Profile updated");
           })
           .catch((error) => {

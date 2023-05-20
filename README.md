@@ -2,7 +2,7 @@
 
 #### Website description
 
-* This is a ecomerce site for action figures(**Marvel**, **Avengers**, **Star wars**, **Transformers**)
+* This is a ecomerce site for action figures( **Avengers**, **Star trek**, **Transformers**)
 * All products are children friendly
 
 You can browse this site to find your favourite heroes. You can see list of all products added in server. However, **My_Toys** page
