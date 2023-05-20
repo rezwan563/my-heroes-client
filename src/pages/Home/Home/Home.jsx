@@ -5,6 +5,7 @@ import PhotoGallery from "../HomeComponents/PhotoGallery/PhotoGallery";
 import ShopbyCategory from "../HomeComponents/ShopbyCategory/ShopbyCategory";
 import LimitedOffer from "../HomeComponents/LimitedOffer/LimitedOffer";
 import NewsLetter from "../HomeComponents/NewsLetter/NewsLetter";
+import LazyLoad from "react-lazy-load";
 
 const Home = () => {
   return (

@@ -25,7 +25,7 @@ const AllToys = () => {
         <button className="p-2 mr-2 md:p-3 bg-slate-700 hover:bg-slate-800 rounded-md text-white"><input type="submit" value="Search" /></button>
        </form>
        </div>
-      <table className="border-collapse border-slate-400 mx-2 md:w-full">
+      <table className="border-collapse table-fixed w-full md:table-auto border-slate-400  md:w-full">
         <thead>
           <tr className="border border-slate-400 md:h-16">
             <th className='border-2'>Seller Name</th>

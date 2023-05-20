@@ -11,7 +11,6 @@ const Login = () => {
   const [isHidden, setIsHidden] = useState(true);
   const [error, setError] = useState("");
   const location = useLocation()
-  console.log(location);
   const navigate = useNavigate()
   const from = location.state?.from?.pathname || '/'
 

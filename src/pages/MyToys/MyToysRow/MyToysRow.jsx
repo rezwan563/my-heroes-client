@@ -1,5 +1,6 @@
 import React from "react";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const MyToysRow = ({ myToys, hadnleEdit, handleDelete }) => {
   return (
@@ -28,13 +29,14 @@ const MyToysRow = ({ myToys, hadnleEdit, handleDelete }) => {
             <td className="border-2">
               <button className="">
                 <FiTrash2
-                  onClick={handleDelete}
+                  onClick={() => handleDelete(_id)}
                   className="text-red-700 text-2xl mb-2"
                 ></FiTrash2>
-                <FiEdit
-                  onClick={hadnleEdit}
+               <Link to={`/update_toy/${_id}`}>
+               <FiEdit
                   className="text-blue-700 text-2xl"
                 ></FiEdit>
+               </Link>
               </button>
             </td>
           </tr>
