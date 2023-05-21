@@ -1,16 +1,45 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { useLoaderData } from "react-router-dom";
 import { tabTitle } from "../Shared/UseDocumentTitle/GeneralFunctions";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const UpdateToy = () => {
     tabTitle('Update Toy - MyHeroes')
     const{ user } = useContext(AuthContext)
-    const loadToyData = useLoaderData()
-    const { _id, sellerName, sellerEmail, toyName, toyPhoto, subCategory, price, rating, quantity, details} = loadToyData[0]
+    const [toyData, setToyData] = useState(useLoaderData())
+    const { _id, sellerName, sellerEmail, toyName, toyPhoto, subCategory, price, rating, quantity, details} = toyData[0]
 
-    const handleUpdateToy = () =>{
-
+    const handleUpdateToy = (e) =>{
+      event.preventDefault();
+      const form = e.target;
+      const subCategory = form.subCategory.value;
+      const price = form.price.value;
+      const rating = form.rating.value;
+      const quantity = form.quantity.value;
+      const details = form.details.value;
+      const updatedInfo = {
+       
+        price,
+        rating,
+        quantity,
+        details,
+      };
+      console.log(updatedInfo);
+      fetch(`http://localhost:5000/all_toys/${_id}`,{
+        method: "PUT",
+        headers:{
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify(updatedInfo)
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        
+        toast.success("Toy information updated")
+      })
     }
   return (
     <div>
@@ -22,7 +51,7 @@ const UpdateToy = () => {
             <input
               type="text"
               name="sellerName"
-              defaultValue={user?.displayName}
+              defaultValue={sellerName}
               disabled
               placeholder="Seller name"
               className="input input-bordered mb-2 md:mb-0 w-full max-w-xs"
@@ -31,7 +60,7 @@ const UpdateToy = () => {
             <input
               type="text"
               name="sellerEmail"
-              defaultValue={user?.email}
+              defaultValue={sellerEmail}
               disabled
               placeholder="Seller email"
               className="input input-bordered mb-2 md:mb-0 w-full max-w-xs"

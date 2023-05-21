@@ -20,12 +20,12 @@ const MyToysRow = ({ myToys, hadnleEdit, handleDelete }) => {
         } = toy;
 
         return (
-          <tr key={toy._id} className="border border-slate-200 text-center ">
-            <td className="border-2">{sellerName}</td>
-            <td className="border-2">{toyName}</td>
-            <td className="border-2">{subCategory}</td>
-            <td className="border-2">{price}</td>
-            <td className="border-2">{quantity}</td>
+          <tr key={toy._id} className="border-b-2 odd:bg-white even:bg-gray-200 text-center ">
+            <td className="">{sellerName}</td>
+            <td className="">{toyName}</td>
+            <td className="">{subCategory}</td>
+            <td className="">{price}</td>
+            <td className="">{quantity}</td>
             {/* <td className="border-2">
               <button className="">
                 <FiTrash2

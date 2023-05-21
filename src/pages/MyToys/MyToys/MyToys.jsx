@@ -58,13 +58,11 @@ const MyToys = () => {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          console.log("Delete", id);
           fetch(`http://localhost:5000/all_toys/${id}`, {
             method: "DELETE",
           })
             .then((res) => res.json())
             .then((data) => {
-              console.log(data);
               if (data.deletedCount > 0) {
                 const remaining = myToys.filter((toy) => toy._id !== id);
                 setMyToys(remaining);
@@ -105,9 +103,9 @@ const MyToys = () => {
             <option value={-1}>Descending</option>
           </select>
         </div>
-        <table className="border-collapse table-fixed md:table-auto w-full border-slate-400 mx-2 my-10 md:w-full">
+        <table className="border-collapse  table-fixed md:table-auto w-full  mx-2 my-10 ">
           <thead>
-            <tr className="border border-slate-400 md:h-16 ">
+            <tr className="odd:bg-gray-200 md:h-16 ">
               <th className="">Seller Name</th>
               <th className="">Toy Name</th>
               <th className="">Sub-Category</th>
