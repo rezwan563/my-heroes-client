@@ -11,7 +11,7 @@ const ShopbyCategory = () => {
   const [categoryToy, setCategoryToy] = useState([])
    
     useEffect(() =>{
-      fetch(`http://localhost:5000/sub_category/${category}`)
+      fetch(`https://assignment-11-my-heroes-server-rezwan563.vercel.app/sub_category/${category}`)
       .then(res => res.json())
       .then(data => {
         setCategoryToy(data)

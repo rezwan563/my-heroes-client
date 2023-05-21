@@ -23,3 +23,4 @@ Interesting part of this project was the backend. Storing data to mongodb server
 
 * [Amazon](https://amazon.com) website was used for toy details
 * User profile picture was taken from the internet
+* ChatGPT was used for about us page

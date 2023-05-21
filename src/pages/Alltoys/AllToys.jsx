@@ -16,7 +16,7 @@ const AllToys = () => {
     if(searchItem === " " || searchItem === ""){
       return allToys
     }
-    fetch(`http://localhost:5000/toys/${searchItem}`)
+    fetch(`https://assignment-11-my-heroes-server-rezwan563.vercel.app/toys/${searchItem}`)
     .then(res => res.json())
     .then(data => {
       setAllToys(data)

@@ -27,7 +27,7 @@ const UpdateToy = () => {
         details,
       };
       console.log(updatedInfo);
-      fetch(`http://localhost:5000/all_toys/${_id}`,{
+      fetch(`https://assignment-11-my-heroes-server-rezwan563.vercel.app/all_toys/${_id}`,{
         method: "PUT",
         headers:{
           'content-type': 'application/json',

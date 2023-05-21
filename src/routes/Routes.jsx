@@ -23,9 +23,13 @@ const router = createBrowserRouter([
           element: <Home></Home>
         },
         {
+          path: '/about_us',
+          element: <About></About>,
+        },
+        {
           path:'/all_toys',
           element: <AllToys></AllToys>,
-          loader: () => fetch('http://localhost:5000/all_toys')
+          loader: () => fetch('https://assignment-11-my-heroes-server-rezwan563.vercel.app/all_toys')
         },
         {
           path:'/my_toys',
@@ -50,17 +54,14 @@ const router = createBrowserRouter([
         {
           path:'/toy/:id',
           element: <PrivateRoute><SingleToyDetails></SingleToyDetails></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/all_toys/${params.id}`)
+          loader: ({params}) => fetch(`https://assignment-11-my-heroes-server-rezwan563.vercel.app/all_toys/${params.id}`)
         },
         {
           path:'/update_toy/:id',
           element: <PrivateRoute><UpdateToy></UpdateToy></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/all_toys/${params.id}`)
+          loader: ({params}) => fetch(`https://assignment-11-my-heroes-server-rezwan563.vercel.app/all_toys/${params.id}`)
         },
-        {
-          path: '/about_us',
-          element: <About></About>
-        }
+        
        
       ],
       

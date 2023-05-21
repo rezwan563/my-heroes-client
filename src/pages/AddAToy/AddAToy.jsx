@@ -34,7 +34,7 @@ const AddAToy = () => {
       quantity,
       details,
     };
-    fetch("http://localhost:5000/all_toys", {
+    fetch("https://assignment-11-my-heroes-server-rezwan563.vercel.app/all_toys", {
       method: "POST",
       headers: {
         'content-type': 'application/json',

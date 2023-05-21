@@ -76,7 +76,7 @@ const WebFooter = () => {
         <div>
           <span className="font-bold text-lg">Company</span>
           <Link to='/about_us' className="link link-hover">About us</Link>
-          <Link to='/contact_us' className="link link-hover">Contact</Link> <span> +880 17 23 734521 <br /> query@myheroes.com <br /> Mirpur, Dhaka- 1207</span>
+          <a className="link link-hover">Contact</a> <span> +880 17 23 734521 <br /> query@myheroes.com <br /> Mirpur, Dhaka- 1207</span>
         </div>
         <div>
           <span className="font-bold text-lg">Legal</span>

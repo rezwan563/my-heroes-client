@@ -12,7 +12,7 @@ const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [select, setSelect] = useState();
 
-  const url = `http://localhost:5000/all_toys?email=${user?.email}`;
+  const url = `https://assignment-11-my-heroes-server-rezwan563.vercel.app/all_toys?email=${user?.email}`;
 
   useEffect(() => {
     fetch(url)
@@ -26,7 +26,7 @@ const MyToys = () => {
     if (select) {
       const sortOrder = parseInt(select);
       fetch(
-        `http://localhost:5000/all_toys?email=${user?.email}&sort=${sortOrder}`
+        `https://assignment-11-my-heroes-server-rezwan563.vercel.app/all_toys?email=${user?.email}&sort=${sortOrder}`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -56,7 +56,7 @@ const MyToys = () => {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          fetch(`http://localhost:5000/all_toys/${id}`, {
+          fetch(`https://assignment-11-my-heroes-server-rezwan563.vercel.app/all_toys/${id}`, {
             method: "DELETE",
           })
             .then((res) => res.json())
@@ -111,10 +111,10 @@ const MyToys = () => {
         <table className=" table-fixed md:table-auto w-full  mx-2 my-10 ">
           <thead>
             <tr className="odd:bg-gray-200 md:h-16 ">
-              <th className="">Seller Name</th>
               <th className="">Toy Name</th>
               <th className="">Sub-Category</th>
               <th className="">Price</th>
+              <th className="">Rating</th>
               <th className="">Avaialbe Qty.</th>
               <th className="">Edit</th>
               <th className="">Delete</th>

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import img from '/placeholder.jpg'
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const ToyCard = ({singleToy}) => {
+  const {user} = useContext(AuthContext)
   const {
     _id,
     sellerName,
@@ -40,12 +43,12 @@ const ToyCard = ({singleToy}) => {
           </div>
           <div className="flex items-center justify-between">
             {/* TODO dynamic route */}
-            <Link
+            <button onClick={() => !user && toast.warning("You have to loging first to view details")}>  <Link
               to={`toy/${_id}`}
               className="text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800"
             >
               View Details
-            </Link>
+            </Link></button>
             <span className="text-3xl font-bold text-gray-900 dark:text-white">
               ${price}
             </span>

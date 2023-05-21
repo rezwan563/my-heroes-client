@@ -21,10 +21,10 @@ const MyToysRow = ({ myToys, hadnleEdit, handleDelete }) => {
 
         return (
           <tr key={toy._id} className="border-b-2 odd:bg-white even:bg-gray-200 text-center ">
-            <td className="">{sellerName}</td>
             <td className="">{toyName}</td>
             <td className="">{subCategory}</td>
             <td className="">{price}</td>
+            <td className="">{rating}</td>
             <td className="">{quantity}</td>
             {/* <td className="border-2">
               <button className="">

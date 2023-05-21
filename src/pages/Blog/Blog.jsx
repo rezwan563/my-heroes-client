@@ -18,7 +18,7 @@ const Blog = () => {
             </div>
             <div className='md:w-1/2 mx-2 md:mx-auto border-2 shadow-md rounded-md p-2'>
                 <p className='text-lg font-bold'>What is express js? What is Nest JS?</p>
-                <p>Ans: Express.js is a framework which is flexible and has a large developers community<br /><br />Nest is a newer framework based on Express.js which makes building server side application quickly and efficiently. Nest.js uses Typescript as its programmign language. Typescript allows to catch error at run time.</p>
+                <p>Ans: Express.js is a framework which is flexible and has a large developers community<br /><br />Nest is a newer framework based on Node.js which makes building server side application quickly and efficiently. Nest.js uses Typescript as its programmign language. Typescript allows to catch error at run time.</p>
             </div>
             <div className='md:w-1/2 mx-2 md:mx-auto border-2 shadow-md rounded-md p-2'>
                 <p className='text-lg font-bold'>What is MongoDB aggregate and how does it work?</p>

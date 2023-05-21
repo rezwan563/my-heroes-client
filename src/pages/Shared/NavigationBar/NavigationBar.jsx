@@ -53,8 +53,13 @@ const NavigationBar = () => {
               <ActiveLink to="/">Home</ActiveLink>
             </li>
             <li>
+              <ActiveLink to="/about_us">About</ActiveLink>
+            </li>
+            <li>
+
               <ActiveLink to="/all_toys">All Toys</ActiveLink>
             </li>
+           
             {user && (
               <li>
                 <ActiveLink to="/my_toys">My Toys</ActiveLink>
