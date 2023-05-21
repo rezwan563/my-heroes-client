@@ -22,7 +22,6 @@ const MyToys = () => {
 
   const hadnleSort = (e) => {
     const sortBy = e.target.value;
-   
   };
 
   const handleDelete = (id) => {
@@ -93,7 +92,7 @@ const MyToys = () => {
             <option value={-1}>Descending</option>
           </select>
         </div>
-        <table className="border-collapse border-slate-400 mx-2 md:w-full">
+        <table className="border-collapse table-fixed md:table-auto w-full border-slate-400 mx-2 my-10 md:w-full">
           <thead>
             <tr className="border border-slate-400 md:h-16">
               <th className="border-2">Seller Name</th>

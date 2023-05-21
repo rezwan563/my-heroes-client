@@ -33,10 +33,13 @@ const MyToysRow = ({ myToys, hadnleEdit, handleDelete }) => {
                   className="text-red-700 text-2xl mb-2"
                 ></FiTrash2>
                <Link to={`/update_toy/${_id}`}>
-               <FiEdit
+               <FiEdit 
                   className="text-blue-700 text-2xl"
-                ></FiEdit>
+                >
+                   
+                    </FiEdit> 
                </Link>
+               
               </button>
             </td>
           </tr>

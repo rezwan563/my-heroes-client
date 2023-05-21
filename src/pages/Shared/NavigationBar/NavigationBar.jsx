@@ -1,13 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { IoMenu, IoCloseCircleOutline } from "react-icons/io5";
 import ActiveLink from "../ActiveLink/ActiveLink";
 import { AuthContext } from "../../provider/AuthProvider";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import { IoMoonOutline, IoMoon } from "react-icons/io5";
 const NavigationBar = () => {
   const [isClicked, setIsClicked] = useState(false);
   const { user, logOut } = useContext(AuthContext);
+  const [theme, setTheme] = useState(
+    localStorage.getItem("class") ? localStorage.getItem("class") : "light"
+  ) 
 
   const handleLogout = () => {
     logOut()
@@ -18,6 +22,11 @@ const NavigationBar = () => {
         toast.error(`${error.message}`);
       });
   };
+  useEffect(() =>{
+    localStorage.setItem("class", theme)
+    const localTheme = localStorage.getItem("class", theme)
+    document.querySelector("html").setAttribute("class", theme)
+  },[theme])
   return (
     <div>
       {/* <h2>This is navbar</h2> */}
@@ -59,6 +68,7 @@ const NavigationBar = () => {
             <li>
               <ActiveLink to="/blog">Blog</ActiveLink>
             </li>
+            
           </ul>
           <div className="flex items-center gap-2">
             {user && (

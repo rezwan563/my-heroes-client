@@ -1,5 +1,4 @@
 import React from "react";
-import img from "/placeholder.jpg";
 import { IoArrowForwardSharp } from "react-icons/io5";
 
 const LimitedOffer = () => {
@@ -20,7 +19,7 @@ const LimitedOffer = () => {
             </div>
           </div>
           <div className="">
-            <img className="rounded-r-md w-fit h-full" src={img} alt="" />
+            <img className="rounded-r-md w-fit h-full" src='https://m.media-amazon.com/images/I/91aTd-k35qL._AC_SX679_.jpg' alt="" />
           </div>
         </div>
       </div>

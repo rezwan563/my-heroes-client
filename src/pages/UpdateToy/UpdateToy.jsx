@@ -6,7 +6,6 @@ const UpdateToy = () => {
     const{ user } = useContext(AuthContext)
     const loadToyData = useLoaderData()
     const { _id, sellerName, sellerEmail, toyName, toyPhoto, subCategory, price, rating, quantity, details} = loadToyData[0]
-    console.log(loadToyData);
 
     const handleUpdateToy = () =>{
 
