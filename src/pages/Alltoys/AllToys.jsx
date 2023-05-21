@@ -33,10 +33,10 @@ const AllToys = () => {
         <input className="p-2 mr-2 md:p-3 bg-slate-700 hover:bg-slate-800 rounded-md text-white" type="submit" value="Search" />
        </form>
        </div>
-      <table className="border-collapse table-fixed w-full md:table-auto border-slate-400  md:w-full">
+      <table className=" table-fixed w-full md:table-auto   md:w-full">
         <thead>
-          <tr className="border-b-2 md:h-16">
-            <tr className="">#</tr>
+          <tr className=" md:h-16">
+            <th className="">#</th>
             <th className=''>Seller Name</th>
             <th className="">Toy Name</th>
             <th className="">Sub-Category</th>

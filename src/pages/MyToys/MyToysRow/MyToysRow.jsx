@@ -26,7 +26,7 @@ const MyToysRow = ({ myToys, hadnleEdit, handleDelete }) => {
             <td className="border-2">{subCategory}</td>
             <td className="border-2">{price}</td>
             <td className="border-2">{quantity}</td>
-            <td className="border-2">
+            {/* <td className="border-2">
               <button className="">
                 <FiTrash2
                   onClick={() => handleDelete(_id)}
@@ -41,7 +41,18 @@ const MyToysRow = ({ myToys, hadnleEdit, handleDelete }) => {
                </Link>
                
               </button>
-            </td>
+            </td> */}
+            <td><Link to={`/update_toy/${_id}`}>
+               <FiEdit 
+                  className="text-blue-700 text-2xl"
+                >
+                   
+                    </FiEdit> 
+               </Link></td>
+               <td>   <FiTrash2
+                  onClick={() => handleDelete(_id)}
+                  className="text-red-700 text-2xl mb-2"
+                ></FiTrash2></td>
           </tr>
         );
       })}

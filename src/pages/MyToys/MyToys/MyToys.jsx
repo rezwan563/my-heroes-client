@@ -6,11 +6,13 @@ import Swal from "sweetalert2";
 import MyToysRow from "../MyToysRow/MyToysRow";
 import { AuthContext } from "../../provider/AuthProvider";
 import { tabTitle } from "../../Shared/UseDocumentTitle/GeneralFunctions";
+import { json } from "react-router-dom";
 
 const MyToys = () => {
   tabTitle('My Toys - MyHeroes')
   const [myToys, setMyToys] = useState([]);
   const { user } = useContext(AuthContext);
+  const [select, setSelect] = useState()
 
   const url = `http://localhost:5000/all_toys?email=${user?.email}`;
 
@@ -22,9 +24,18 @@ const MyToys = () => {
       });
   }, []);
 
-  const hadnleSort = (e) => {
-    const sortBy = e.target.value;
-  };
+  useEffect(() =>{
+    if(select){
+      console.log(select)
+      const sortOrder = parseInt(select)
+      console.log(sortOrder)
+      fetch(`http://localhost:5000/all_toys?email=${user?.email}&sort=${sortOrder}`)
+      .then(res => res.json())
+      .then(data => {
+        setMyToys(data)
+      })
+    }
+  },[select])
 
   const handleDelete = (id) => {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -85,9 +96,9 @@ const MyToys = () => {
           <p className="text-2xl">Total toys: {myToys.length}</p>
           <select
             className="select select-bordered w-full max-w-xs"
-            onChange={hadnleSort}
+            onChange={(e) => setSelect(e.target.value)}
           >
-            <option value="all" className="">
+            <option  className="hidden">
               Select
             </option>
             <option value={1}>Ascending</option>
@@ -96,13 +107,14 @@ const MyToys = () => {
         </div>
         <table className="border-collapse table-fixed md:table-auto w-full border-slate-400 mx-2 my-10 md:w-full">
           <thead>
-            <tr className="border border-slate-400 md:h-16">
-              <th className="border-2">Seller Name</th>
-              <th className="border-2">Toy Name</th>
-              <th className="border-2">Sub-Category</th>
-              <th className="border-2">Price</th>
-              <th className="border-2">Avaialbe Qty.</th>
-              <th className="border-2">Actions</th>
+            <tr className="border border-slate-400 md:h-16 ">
+              <th className="">Seller Name</th>
+              <th className="">Toy Name</th>
+              <th className="">Sub-Category</th>
+              <th className="">Price</th>
+              <th className="">Avaialbe Qty.</th>
+              <th className="">Edit</th>
+              <th className="">Delete</th>
             </tr>
           </thead>
           <tbody>
