@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import img from "/placeholder.jpg";
 import { useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { tabTitle } from "../Shared/UseDocumentTitle/GeneralFunctions";
@@ -91,7 +90,7 @@ const SingleToyDetails = () => {
             </p>
           </div>
           <div>
-            <img className="md:w-full" src={toyPhoto} alt="" />
+            <img className="md:w-fit" src={toyPhoto} alt="" />
           </div>
         </div>
       </div>

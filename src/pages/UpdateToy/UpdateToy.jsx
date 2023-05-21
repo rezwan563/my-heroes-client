@@ -45,6 +45,7 @@ const UpdateToy = () => {
               type="text"
               name="toyName"
               defaultValue={toyName}
+              disabled
               placeholder="Toy name"
               className="input input-bordered mb-2 md:mb-0 w-full max-w-xs"
               required
@@ -53,6 +54,7 @@ const UpdateToy = () => {
               type="url"
               name="toyPhoto"
               defaultValue={toyPhoto}
+              disabled
               placeholder="Toy photo"
               className="input input-bordered mb-2 md:mb-0 w-full max-w-xs"
               required
@@ -63,6 +65,7 @@ const UpdateToy = () => {
               type="text"
               name="subCategory"
               defaultValue={subCategory}
+              disabled
               placeholder="Sub category"
               className="input input-bordered mb-2 md:mb-0 w-full max-w-xs"
               required
