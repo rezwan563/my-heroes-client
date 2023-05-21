@@ -6,13 +6,13 @@ import Swal from "sweetalert2";
 import MyToysRow from "../MyToysRow/MyToysRow";
 import { AuthContext } from "../../provider/AuthProvider";
 import { tabTitle } from "../../Shared/UseDocumentTitle/GeneralFunctions";
-import { json } from "react-router-dom";
+import { Link, json } from "react-router-dom";
 
 const MyToys = () => {
-  tabTitle('My Toys - MyHeroes')
+  tabTitle("My Toys - MyHeroes");
   const [myToys, setMyToys] = useState([]);
   const { user } = useContext(AuthContext);
-  const [select, setSelect] = useState()
+  const [select, setSelect] = useState();
 
   const url = `http://localhost:5000/all_toys?email=${user?.email}`;
 
@@ -24,18 +24,18 @@ const MyToys = () => {
       });
   }, []);
 
-  useEffect(() =>{
-    if(select){
-      console.log(select)
-      const sortOrder = parseInt(select)
-      console.log(sortOrder)
-      fetch(`http://localhost:5000/all_toys?email=${user?.email}&sort=${sortOrder}`)
-      .then(res => res.json())
-      .then(data => {
-        setMyToys(data)
-      })
+  useEffect(() => {
+    if (select) {
+      const sortOrder = parseInt(select);
+      fetch(
+        `http://localhost:5000/all_toys?email=${user?.email}&sort=${sortOrder}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setMyToys(data);
+        });
     }
-  },[select])
+  }, [select]);
 
   const handleDelete = (id) => {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -73,10 +73,7 @@ const MyToys = () => {
                 );
               }
             });
-        } else if (
-          /* Read more about handling dismissals below */
-          result.dismiss === Swal.DismissReason.cancel
-        ) {
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
           swalWithBootstrapButtons.fire(
             "Cancelled",
             "Your toy data is safe :)",
@@ -89,21 +86,31 @@ const MyToys = () => {
   const hadnleEdit = () => {};
   return (
     <div>
-      <div className="mt-12 mx-2 md:mx-36">
-        <div className="mb-2 text-end">
-          <p className="text-2xl">Total toys: {myToys.length}</p>
-          <select
-            className="select select-bordered w-full max-w-xs"
-            onChange={(e) => setSelect(e.target.value)}
-          >
-            <option  className="hidden">
-              Select
-            </option>
-            <option value={1}>Ascending</option>
-            <option value={-1}>Descending</option>
-          </select>
+      <div className="mt-12 mx-2 md:mx-20">
+        <div className="mb-2 ">
+          <div className="flex justify-between">
+            {myToys.length === 0 && (
+              <p className="font-bold">
+                Looks like you haven't added anything yet. You can add a toy{" "}
+                <Link className="text-blue-700" to={"/add_toy"}>here</Link>
+              </p>
+            )}
+            <p className={`text-2xl ${myToys.length > 0 ? 'text-end' : ''}`}>Total toys: {myToys.length}</p>
+          </div>
+          <div className="flex justify-end">
+            {myToys.length > 1 && (
+              <select
+                className="select select-bordered w-full max-w-xs"
+                onChange={(e) => setSelect(e.target.value)}
+              >
+                <option className="hidden">Select</option>
+                <option value={1}>Ascending</option>
+                <option value={-1}>Descending</option>
+              </select>
+            )}
+          </div>
         </div>
-        <table className="border-collapse  table-fixed md:table-auto w-full  mx-2 my-10 ">
+        <table className=" table-fixed md:table-auto w-full  mx-2 my-10 ">
           <thead>
             <tr className="odd:bg-gray-200 md:h-16 ">
               <th className="">Seller Name</th>

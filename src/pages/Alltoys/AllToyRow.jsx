@@ -19,7 +19,7 @@ const AllToyRow = ({ allToys }) => {
           details,
         } = toy;
         return (
-          <tr key={toy._id}  className="border-b-2 odd:bg-white even:bg-slate-50 text-center ">
+          <tr key={toy._id}  className="border-b-2 odd:bg-white even:bg-slate-200 text-center ">
             <td className="">{index + 1}</td>
             <td className="">{sellerName}</td>
             <td className="">{toyName}</td>

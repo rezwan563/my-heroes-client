@@ -6,8 +6,8 @@ import { tabTitle } from "../Shared/UseDocumentTitle/GeneralFunctions";
 const AllToys = () => {
   tabTitle('All Toys - MyHeroes')
   const [searchItem, setSearchItem] = useState('')
-  // const allToys = useLoaderData()
   const [allToys, setAllToys] = useState(useLoaderData())
+  const [isSearch, setIsSearch] = useState(false)
 
   const handleSearch = (e) =>{
     e.preventDefault()
@@ -18,6 +18,7 @@ const AllToys = () => {
     .then(res => res.json())
     .then(data => {
       setAllToys(data)
+      setIsSearch(true)
     })
   }
 
@@ -25,6 +26,9 @@ const AllToys = () => {
   return (
     <div className="my-12 md:mx-20">
        <div className="mb-2 ">
+       {
+        isSearch &&  <p className="text-2xl">Found matching: {allToys.length}</p>
+       }
        <form onSubmit={handleSearch} className="flex justify-end">
        <input type="text"
        onChange={(e) => setSearchItem(e.target.value)}
@@ -35,7 +39,7 @@ const AllToys = () => {
        </div>
       <table className=" table-fixed w-full md:table-auto   md:w-full">
         <thead>
-          <tr className=" md:h-16">
+          <tr className="odd:bg-slate-200 md:h-16">
             <th className="">#</th>
             <th className=''>Seller Name</th>
             <th className="">Toy Name</th>
