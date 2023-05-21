@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import AllToyRow from "./AllToyRow";
 import { tabTitle } from "../Shared/UseDocumentTitle/GeneralFunctions";
+import MyToys from "../MyToys/MyToys/MyToys";
 
 const AllToys = () => {
   tabTitle('All Toys - MyHeroes')
   const [searchItem, setSearchItem] = useState('')
+  const showAllToys = useLoaderData()
   const [allToys, setAllToys] = useState(useLoaderData())
   const [isSearch, setIsSearch] = useState(false)
 

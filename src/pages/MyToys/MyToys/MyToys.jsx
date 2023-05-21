@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { FiEdit, FiTrash2 } from "react-icons/fi";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
 import MyToysRow from "../MyToysRow/MyToysRow";
