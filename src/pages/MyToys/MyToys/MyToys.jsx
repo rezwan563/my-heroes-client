@@ -5,8 +5,10 @@ import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
 import MyToysRow from "../MyToysRow/MyToysRow";
 import { AuthContext } from "../../provider/AuthProvider";
+import { tabTitle } from "../../Shared/UseDocumentTitle/GeneralFunctions";
 
 const MyToys = () => {
+  tabTitle('My Toys - MyHeroes')
   const [myToys, setMyToys] = useState([]);
   const { user } = useContext(AuthContext);
 

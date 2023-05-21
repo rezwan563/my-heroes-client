@@ -4,15 +4,16 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { tabTitle } from "../Shared/UseDocumentTitle/GeneralFunctions";
 
 
 const Register = () => {
+  tabTitle('Register - MyHeroes')
   const [isHidden, setIsHidden] = useState(true);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const location = useLocation()
   const navigate = useNavigate()
-  console.log(location);
   const from = location.state?.from?.state?.from?.pathname || '/'
   const { user, createUser, profileUpdate } = useContext(AuthContext);
 

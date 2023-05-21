@@ -6,8 +6,10 @@ import ShopbyCategory from "../HomeComponents/ShopbyCategory/ShopbyCategory";
 import LimitedOffer from "../HomeComponents/LimitedOffer/LimitedOffer";
 import NewsLetter from "../HomeComponents/NewsLetter/NewsLetter";
 import LazyLoad from "react-lazy-load";
+import { tabTitle } from "../../Shared/UseDocumentTitle/GeneralFunctions";
 
 const Home = () => {
+  tabTitle('MyHeroes')
   return (
     <div className="">
       <Banner></Banner>

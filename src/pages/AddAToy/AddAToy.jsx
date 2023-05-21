@@ -3,8 +3,10 @@ import { AuthContext } from "../provider/AuthProvider";
 import "./AddAToy.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import { tabTitle } from "../Shared/UseDocumentTitle/GeneralFunctions";
 
 const AddAToy = () => {
+  tabTitle('Add Toy - MyHeroes')
   const { user } = useContext(AuthContext);
 
   const handleAddToy = (event) => {

@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { tabTitle } from "../UseDocumentTitle/GeneralFunctions";
 
 const ErrorPage = () => {
+  tabTitle('Error - MyHeroes')
   return (
     <div className="h-screen p-2 mt-20">
       <div className="flex justify-center items-center">

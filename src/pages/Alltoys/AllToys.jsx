@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import AllToyRow from "./AllToyRow";
+import { tabTitle } from "../Shared/UseDocumentTitle/GeneralFunctions";
 
 const AllToys = () => {
-  // TODO
-  // 1. Dynamic route on details button ('/toy/:id')
+  tabTitle('All Toy - MyHeroes')
   const allToys = useLoaderData()
 
   const handleSearch = (e) =>{

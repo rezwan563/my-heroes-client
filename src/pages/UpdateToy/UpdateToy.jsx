@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { useLoaderData } from "react-router-dom";
+import { tabTitle } from "../Shared/UseDocumentTitle/GeneralFunctions";
 
 const UpdateToy = () => {
+    tabTitle('Update Toy - MyHeroes')
     const{ user } = useContext(AuthContext)
     const loadToyData = useLoaderData()
     const { _id, sellerName, sellerEmail, toyName, toyPhoto, subCategory, price, rating, quantity, details} = loadToyData[0]

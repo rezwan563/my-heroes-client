@@ -2,8 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import img from "/placeholder.jpg";
 import { useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { tabTitle } from "../Shared/UseDocumentTitle/GeneralFunctions";
 
 const SingleToyDetails = () => {
+    tabTitle('Single Toy - MyHeroes')
   const { user } = useContext(AuthContext);
   const loadSingleDetails = useLoaderData();
   const {
@@ -44,7 +46,7 @@ const SingleToyDetails = () => {
                 {subCategory}
               </p>
               <p>
-                <span className="font-semibold">Price: </span> {price}
+                <span className="font-semibold">Price: </span> ${price}
               </p>
               <p>
                 <span className="font-semibold">Rating: </span> {rating}

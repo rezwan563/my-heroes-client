@@ -5,8 +5,10 @@ import { AuthContext } from "../provider/AuthProvider";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import { ImGoogle } from "react-icons/im";
+import { tabTitle } from "../Shared/UseDocumentTitle/GeneralFunctions";
 
 const Login = () => {
+  tabTitle('Login - MyHeroes')
   const { user, emailLogin, googleLogin } = useContext(AuthContext);
   const [isHidden, setIsHidden] = useState(true);
   const [error, setError] = useState("");
